@@ -1,0 +1,14 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  rss-parser:
+    lang: ruby
+    handler: ./rss-parser
+    image: ${DOCKER_USERNAME}/rss-parser:latest
+    environment:
+      reylo_rss_feed: http://fetchrss.com/rss/5f26ee9b8a93f836338b45675f28bf318a93f85e268b4567.xml
+    annotations: 
+      topic: cron-function
+      schedule: "*/5 * * * *"
