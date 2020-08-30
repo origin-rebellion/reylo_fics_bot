@@ -6,7 +6,7 @@ class Handler
     parse_rss
   end
 
-	def parse_rss
+  def parse_rss
     # Set up the output RSS feed
     rss = RSS::Maker.make("atom") do |maker|
       maker.channel.author = "reylo_fic"
