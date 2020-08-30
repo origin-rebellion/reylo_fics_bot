@@ -2,14 +2,14 @@ require 'rss'
 require 'open-uri'
 
 class Handler
-	def run(req)
-		parse_rss
-	end
+  def run(req)
+    parse_rss
+  end
 
 	def parse_rss
     # Set up the output RSS feed
-		rss = RSS::Maker.make("atom") do |maker|
-			maker.channel.author = "reylo_fic"
+    rss = RSS::Maker.make("atom") do |maker|
+      maker.channel.author = "reylo_fic"
       maker.channel.updated = Time.now.to_s
       maker.channel.title = "reylo fics"
       maker.channel.about = "reylo_fic on twitter"
